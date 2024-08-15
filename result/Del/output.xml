@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-08-13T11:46:57.425467" rpa="false" schemaversion="5">
+<suite id="s1" name="DelAPI" source="E:\PythonProject\APIAutomation\DelAPI.robot">
+<test id="s1-t1" name="UserRetrive" line="10">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:58.139915" level="INFO">Creating Session using : alias=ritusession, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>ritusession</arg>
+<arg>${host}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-08-13T11:46:58.139915" elapsed="0.000000"/>
+</kw>
+<kw name="Delete Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:58.140912" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg time="2024-08-13T11:47:01.603956" level="INFO">DELETE Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:47:01.604956" level="INFO">DELETE Response : url=https://reqres.in/api/users/2 
+ status=204, reason=No Content 
+ headers={'Date': 'Tue, 13 Aug 2024 06:17:01 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723529821&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=sWJJFVz4dPWrcnTGeLLN%2FWe%2BtOmka5rsv61nurZibvE%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723529821&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=sWJJFVz4dPWrcnTGeLLN%2FWe%2BtOmka5rsv61nurZibvE%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8b2694643c2b3fea-BOM'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:47:01.604956" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:47:01.605950" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<var>${response}</var>
+<arg>ritusession</arg>
+<arg>${path}</arg>
+<doc>*DEPRECATED* Please use `DELETE On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:58.140912" elapsed="3.465038"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:47:01.614887" level="INFO">204</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:47:01.606954" elapsed="0.007933"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="StatusCode_Validation">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:47:01.623862" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${statuscode}</arg>
+<arg>204</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:47:01.622865" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${statuscode}</arg>
+<arg>204</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:47:01.621868" elapsed="0.001994"/>
+</kw>
+<arg>${response.status_code}</arg>
+<status status="PASS" start="2024-08-13T11:47:01.617880" elapsed="0.006967"/>
+</kw>
+<arg>StatusCode_Validation</arg>
+<arg>${response.status_code}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:47:01.615874" elapsed="0.009973"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:58.136923" elapsed="3.490921"/>
+</test>
+<status status="PASS" start="2024-08-13T11:46:57.427462" elapsed="4.205369"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="DelAPI">DelAPI</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-08-13T11:46:58.140912" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+</errors>
+</robot>

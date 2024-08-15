@@ -1,0 +1,3395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-08-13T11:46:46.876373" rpa="false" schemaversion="5">
+<suite id="s1" name="Testlab" source="E:\PythonProject\APIAutomation\testlab.robot">
+<kw name="hostsession" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:47.531288" level="INFO">Creating Session using : alias=hostsession, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>hostsession</arg>
+<arg>${host/server}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-08-13T11:46:47.531288" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:47.530290" elapsed="0.000998"/>
+</kw>
+<test id="s1-t1" name="SingleUserGet" line="24">
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:47.532286" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:47.972024" level="INFO">GET Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:47.973022" level="INFO">GET Response : url=https://reqres.in/api/users/2 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:48 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723489779&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=8d2HT8k%2Fld6J4LuGg07xVxUIfvw65lomAJkpE1Mk3H0%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723489779&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=8d2HT8k%2Fld6J4LuGg07xVxUIfvw65lomAJkpE1Mk3H0%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"118-pbdwwFo9SKNhD3Lx5iHJyngpq00"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '3887', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8b269418fb6ff3f9-BOM', 'Content-Encoding': 'gzip'} 
+ body={"data":{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg time="2024-08-13T11:46:47.973022" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:47.973975" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${GetSinglePath}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.532286" elapsed="0.441689"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:47.980002" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.974977" elapsed="0.005025"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:47.982995" level="INFO">{"data":{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.981000" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:47.986987" level="INFO">200</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.986987" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:47.987981" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.987981" elapsed="0.000996"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.987981" elapsed="0.000996"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<status status="PASS" start="2024-08-13T11:46:47.983994" elapsed="0.004983"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.983994" elapsed="0.004983"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="GetSContentValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:47.994966" level="INFO">{"data":{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.993922" elapsed="0.001044"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-13T11:46:47.995961" level="INFO">${json} = {'data': {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}, 'support': {'url': 'https://reqres.in/#support...</msg>
+<var>${json}</var>
+<arg>json.loads('''${data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.995961" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:47.996957" level="INFO">{'data': {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}, 'support': {'url': 'https://reqres.in/#support-heading', 'text': 'To keep ReqRes free, contributions towards server costs are appreciated!'}}</msg>
+<arg>${json}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.996957" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:47.998951" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data']['id']}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.997954" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data']['id']}</arg>
+<arg>2</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.996957" elapsed="0.001994"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data']['email']}</arg>
+<arg>janet.weaver@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.998951" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data']['email']}</arg>
+<arg>janet.weaver@reqres.in</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.998951" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data']['first_name']}</arg>
+<arg>Janet</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.000943" elapsed="0.000000"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data']['first_name']}</arg>
+<arg>Janet</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.999948" elapsed="0.001992"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data']['last_name']}</arg>
+<arg>Weaver</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.001940" elapsed="0.001001"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data']['last_name']}</arg>
+<arg>Weaver</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.001940" elapsed="0.001001"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data']['avatar']}</arg>
+<arg>https://reqres.in/img/faces/2-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.002941" elapsed="0.000993"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data']['avatar']}</arg>
+<arg>https://reqres.in/img/faces/2-image.jpg</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.002941" elapsed="0.000993"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['support']['text']}</arg>
+<arg>To keep ReqRes free, contributions towards server costs are appreciated!</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.003934" elapsed="0.000986"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['support']['text']}</arg>
+<arg>To keep ReqRes free, contributions towards server costs are appreciated!</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.003934" elapsed="0.000986"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['support']['url']}</arg>
+<arg>https://reqres.in/#support-heading</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.004920" elapsed="0.001000"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['support']['url']}</arg>
+<arg>https://reqres.in/#support-heading</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.004920" elapsed="0.001000"/>
+</kw>
+<arg>${response.content}</arg>
+<status status="PASS" start="2024-08-13T11:46:47.989978" elapsed="0.015942"/>
+</kw>
+<arg>GetSContentValidation</arg>
+<arg>${response.content}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:47.988977" elapsed="0.016943"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:47.531288" elapsed="0.475627"/>
+</test>
+<test id="s1-t2" name="ListUserGet" line="31">
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:48.008881" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:48.095128" level="INFO">GET Request : url=https://reqres.in/api/users?page=2 
+ path_url=/api/users?page=2 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:48.096126" level="INFO">GET Response : url=https://reqres.in/api/users?page=2 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:48 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723384488&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=EE26aK26WK5VNK0Ccjtltk5I9ILDw%2F1cNmrruqjOWOY%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723384488&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=EE26aK26WK5VNK0Ccjtltk5I9ILDw%2F1cNmrruqjOWOY%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '6112', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8b269419bc16f3f9-BOM', 'Content-Encoding': 'gzip'} 
+ body={"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg time="2024-08-13T11:46:48.096126" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:48.096126" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${GetListPath}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.008881" elapsed="0.087245"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.098120" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.097130" elapsed="0.001987"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.100114" level="INFO">{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.099117" elapsed="0.001994"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.103106" level="INFO">200</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.103106" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.104103" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.103106" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.103106" elapsed="0.000997"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<status status="PASS" start="2024-08-13T11:46:48.101111" elapsed="0.002992"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.101111" elapsed="0.002992"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="GetLContentValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.108096" level="INFO">{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.107096" elapsed="0.001000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.111087" level="INFO">${json} = {'page': 2, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces...</msg>
+<var>${json}</var>
+<arg>json.loads('''${data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.109091" elapsed="0.001996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.114078" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['page']}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.112084" elapsed="0.001994"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['page']}</arg>
+<arg>2</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.111087" elapsed="0.002991"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.117071" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['per_page']}</arg>
+<arg>6</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.115076" elapsed="0.001995"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['per_page']}</arg>
+<arg>6</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.115076" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.120061" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['total']}</arg>
+<arg>12</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.118067" elapsed="0.001994"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['total']}</arg>
+<arg>12</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.118067" elapsed="0.001994"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.122055" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['total_pages']}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.121058" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['total_pages']}</arg>
+<arg>2</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.120061" elapsed="0.001994"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.126047" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][0]['id']}</arg>
+<arg>7</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.123053" elapsed="0.002994"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][0]['id']}</arg>
+<arg>7</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.123053" elapsed="0.002994"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][0]['email']}</arg>
+<arg>michael.lawson@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.127045" elapsed="0.000995"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][0]['email']}</arg>
+<arg>michael.lawson@reqres.in</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.126047" elapsed="0.001993"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][0]['first_name']}</arg>
+<arg>Michael</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.128040" elapsed="0.001002"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][0]['first_name']}</arg>
+<arg>Michael</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.128040" elapsed="0.001002"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][0]['last_name']}</arg>
+<arg>Lawson</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.130035" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][0]['last_name']}</arg>
+<arg>Lawson</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.129042" elapsed="0.001990"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][0]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/7-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.131032" elapsed="0.001995"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][0]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/7-image.jpg</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.131032" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.135022" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][1]['id']}</arg>
+<arg>8</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.133027" elapsed="0.001995"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][1]['id']}</arg>
+<arg>8</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.133027" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][1]['email']}</arg>
+<arg>lindsay.ferguson@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.135022" elapsed="0.001996"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][1]['email']}</arg>
+<arg>lindsay.ferguson@reqres.in</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.135022" elapsed="0.001996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][1]['first_name']}</arg>
+<arg>Lindsay</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.138014" elapsed="0.000996"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][1]['first_name']}</arg>
+<arg>Lindsay</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.137018" elapsed="0.001992"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][1]['last_name']}</arg>
+<arg>Ferguson</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.140007" elapsed="0.001995"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][1]['last_name']}</arg>
+<arg>Ferguson</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.139010" elapsed="0.002992"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][1]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/8-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.143000" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][1]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/8-image.jpg</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.143000" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.145996" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][2]['id']}</arg>
+<arg>9</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.144999" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][2]['id']}</arg>
+<arg>9</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.144999" elapsed="0.001994"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][2]['email']}</arg>
+<arg>tobias.funke@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.146993" elapsed="0.001024"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][2]['email']}</arg>
+<arg>tobias.funke@reqres.in</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.146993" elapsed="0.001024"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][2]['first_name']}</arg>
+<arg>Tobias</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.149014" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][2]['first_name']}</arg>
+<arg>Tobias</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.149014" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][2]['last_name']}</arg>
+<arg>Funke</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.151008" elapsed="0.001000"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][2]['last_name']}</arg>
+<arg>Funke</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.150012" elapsed="0.001996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][2]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/9-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.152008" elapsed="0.000996"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][2]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/9-image.jpg</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.152008" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.154967" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][3]['id']}</arg>
+<arg>10</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.154002" elapsed="0.000965"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][3]['id']}</arg>
+<arg>10</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.154002" elapsed="0.000965"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][3]['email']}</arg>
+<arg>byron.fields@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.154967" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][3]['email']}</arg>
+<arg>byron.fields@reqres.in</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.154967" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][3]['first_name']}</arg>
+<arg>Byron</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.155965" elapsed="0.001995"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][3]['first_name']}</arg>
+<arg>Byron</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.155965" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][3]['last_name']}</arg>
+<arg>Fields</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.158961" elapsed="0.001991"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][3]['last_name']}</arg>
+<arg>Fields</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.158961" elapsed="0.001991"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][3]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/10-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.160952" elapsed="0.000996"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][3]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/10-image.jpg</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.160952" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.162946" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][4]['id']}</arg>
+<arg>11</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.161948" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][4]['id']}</arg>
+<arg>11</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.161948" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][4]['email']}</arg>
+<arg>george.edwards@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.162946" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][4]['email']}</arg>
+<arg>george.edwards@reqres.in</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.162946" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][4]['first_name']}</arg>
+<arg>George</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.163944" elapsed="0.000996"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][4]['first_name']}</arg>
+<arg>George</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.163944" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][4]['last_name']}</arg>
+<arg>Edwards</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.164940" elapsed="0.000999"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][4]['last_name']}</arg>
+<arg>Edwards</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.164940" elapsed="0.000999"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][4]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/11-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.166938" elapsed="0.000995"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][4]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/11-image.jpg</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.166938" elapsed="0.000995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.168933" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][5]['id']}</arg>
+<arg>12</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.168933" elapsed="0.000000"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][5]['id']}</arg>
+<arg>12</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.167933" elapsed="0.001000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][5]['email']}</arg>
+<arg>rachel.howell@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.169931" elapsed="0.000000"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][5]['email']}</arg>
+<arg>rachel.howell@reqres.in</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.169931" elapsed="0.001000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][5]['first_name']}</arg>
+<arg>Rachel</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.170931" elapsed="0.000991"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][5]['first_name']}</arg>
+<arg>Rachel</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.170931" elapsed="0.000991"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][5]['last_name']}</arg>
+<arg>Howell</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.171922" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][5]['last_name']}</arg>
+<arg>Howell</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.171922" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][5]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/12-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.172920" elapsed="0.001995"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][5]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/12-image.jpg</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.172920" elapsed="0.002991"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['support']['url']}</arg>
+<arg>https://reqres.in/#support-heading</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.175911" elapsed="0.001995"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['support']['url']}</arg>
+<arg>https://reqres.in/#support-heading</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.175911" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['support']['text']}</arg>
+<arg>To keep ReqRes free, contributions towards server costs are appreciated!</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.177906" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['support']['text']}</arg>
+<arg>To keep ReqRes free, contributions towards server costs are appreciated!</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.177906" elapsed="0.001994"/>
+</kw>
+<arg>${response.content}</arg>
+<status status="PASS" start="2024-08-13T11:46:48.105101" elapsed="0.074799"/>
+</kw>
+<arg>GetLContentValidation</arg>
+<arg>${response.content}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.104103" elapsed="0.075797"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:48.006915" elapsed="0.172985"/>
+</test>
+<test id="s1-t3" name="UserNotFound" line="38">
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:48.180898" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:48.603292" level="INFO">GET Request : url=https://reqres.in/api/users/23 
+ path_url=/api/users/23 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:48.603292" level="INFO">GET Response : url=https://reqres.in/api/users/23 
+ status=404, reason=Not Found 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:49 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723529809&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=TCWlv67tLSY9HGVx3eCJ%2BMxhaDugym9nqK91H5XQZ3I%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723529809&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=TCWlv67tLSY9HGVx3eCJ%2BMxhaDugym9nqK91H5XQZ3I%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'EXPIRED', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8b26941abcf2f3f9-BOM'} 
+ body={} 
+ </msg>
+<msg time="2024-08-13T11:46:48.603292" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:48.604289" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${UserNotFound}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.180898" elapsed="0.423391"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.605286" level="INFO">404</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.604289" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.610275" level="INFO">404</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.609277" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.612269" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.611271" elapsed="0.001996"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.611271" elapsed="0.001996"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>404</arg>
+<status status="PASS" start="2024-08-13T11:46:48.605286" elapsed="0.007981"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>404</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.605286" elapsed="0.007981"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:48.180898" elapsed="0.433366"/>
+</test>
+<test id="s1-t4" name="SRUserGet" line="43">
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:48.615260" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:48.696099" level="INFO">GET Request : url=https://reqres.in/api/unknown/2 
+ path_url=/api/unknown/2 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:48.696099" level="INFO">GET Response : url=https://reqres.in/api/unknown/2 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:49 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1722351053&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=%2B9CxOm%2F6dAHS3Hya7Mbm7KkX7ndQNqJ9I2MWhESjfUE%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1722351053&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=%2B9CxOm%2F6dAHS3Hya7Mbm7KkX7ndQNqJ9I2MWhESjfUE%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"e8-ov4wWh4/OY1IMQMqWgskYtOFnVs"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '4764', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8b26941d7f9df3f9-BOM', 'Content-Encoding': 'gzip'} 
+ body={"data":{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg time="2024-08-13T11:46:48.696099" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:48.696099" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${GetSRPath}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.615260" elapsed="0.080839"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.698090" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.697121" elapsed="0.000969"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.699116" level="INFO">{"data":{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.698090" elapsed="0.001026"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.702108" level="INFO">200</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.701080" elapsed="0.001028"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.702108" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.702108" elapsed="0.000000"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.702108" elapsed="0.000000"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<status status="PASS" start="2024-08-13T11:46:48.700113" elapsed="0.001995"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.700113" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="GetSRContentValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.704073" level="INFO">{"data":{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.704073" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.704073" level="INFO">${json} = {'data': {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}, 'support': {'url': 'https://reqres.in/#support-heading', 'text': 'To keep ReqRes free, contrib...</msg>
+<var>${json}</var>
+<arg>json.loads('''${data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.704073" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.705099" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data']['id']}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.704073" elapsed="0.001026"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data']['id']}</arg>
+<arg>2</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.704073" elapsed="0.001026"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data']['name']}</arg>
+<arg>fuchsia rose</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.706097" elapsed="0.000969"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data']['name']}</arg>
+<arg>fuchsia rose</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.705099" elapsed="0.001967"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.711053" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data']['year']}</arg>
+<arg>2001</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.709060" elapsed="0.001993"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data']['year']}</arg>
+<arg>2001</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.708074" elapsed="0.002979"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data']['color']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.712055" elapsed="0.002031"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data']['color']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.711053" elapsed="0.003033"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data']['pantone_value']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.715045" elapsed="0.000000"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data']['pantone_value']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.714086" elapsed="0.000959"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['support']['url']}</arg>
+<arg>https://reqres.in/#support-heading</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.716072" elapsed="0.001001"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['support']['url']}</arg>
+<arg>https://reqres.in/#support-heading</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.716072" elapsed="0.001001"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['support']['text']}</arg>
+<arg>To keep ReqRes free, contributions towards server costs are appreciated!</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.717073" elapsed="0.000993"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['support']['text']}</arg>
+<arg>To keep ReqRes free, contributions towards server costs are appreciated!</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.717073" elapsed="0.000993"/>
+</kw>
+<arg>${response.content}</arg>
+<status status="PASS" start="2024-08-13T11:46:48.703103" elapsed="0.014963"/>
+</kw>
+<arg>GetSRContentValidation</arg>
+<arg>${response.content}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.703103" elapsed="0.014963"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:48.614264" elapsed="0.103802"/>
+</test>
+<test id="s1-t5" name="LRUserGet" line="50">
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:48.719062" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:48.943802" level="INFO">GET Request : url=https://reqres.in/api/unknown 
+ path_url=/api/unknown 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:48.944799" level="INFO">GET Response : url=https://reqres.in/api/unknown 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:49 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723460108&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=F62lA3XyrQL0ISqDusiZS6nbiFus4nFL2fYUgUtXuFo%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723460108&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=F62lA3XyrQL0ISqDusiZS6nbiFus4nFL2fYUgUtXuFo%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2c1-N6Rqerxquq2kgQhL51EiSg4x0R8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '3461', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8b26941e789df3f9-BOM', 'Content-Encoding': 'gzip'} 
+ body={"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"name":"cerulean","year":2000,"color":"#98B2D1","pantone_value":"15-4020"},{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},{"id":3,"name":"true red","year":2002,"color":"#BF1932","pantone_value":"19-1664"},{"id":4,"name":"aqua sky","year":2003,"color":"#7BC4C4","pantone_value":"14-4811"},{"id":5,"name":"tigerlily","year":2004,"color":"#E2583E","pantone_value":"17-1456"},{"id":6,"name":"blue turquoise","year":2005,"color":"#53B0AE","pantone_value":"15-5217"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg time="2024-08-13T11:46:48.944799" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:48.945796" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${GetLRPath}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.719062" elapsed="0.226734"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.947795" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.946799" elapsed="0.001991"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.950786" level="INFO">{"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"name":"cerulean","year":2000,"color":"#98B2D1","pantone_value":"15-4020"},{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},{"id":3,"name":"true red","year":2002,"color":"#BF1932","pantone_value":"19-1664"},{"id":4,"name":"aqua sky","year":2003,"color":"#7BC4C4","pantone_value":"14-4811"},{"id":5,"name":"tigerlily","year":2004,"color":"#E2583E","pantone_value":"17-1456"},{"id":6,"name":"blue turquoise","year":2005,"color":"#53B0AE","pantone_value":"15-5217"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.948790" elapsed="0.001996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.953777" level="INFO">200</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.952781" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.955769" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.954813" elapsed="0.000956"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.954813" elapsed="0.000956"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<status status="PASS" start="2024-08-13T11:46:48.951784" elapsed="0.004983"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.950786" elapsed="0.005981"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="GetLRContentValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.964783" level="INFO">{"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"name":"cerulean","year":2000,"color":"#98B2D1","pantone_value":"15-4020"},{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},{"id":3,"name":"true red","year":2002,"color":"#BF1932","pantone_value":"19-1664"},{"id":4,"name":"aqua sky","year":2003,"color":"#7BC4C4","pantone_value":"14-4811"},{"id":5,"name":"tigerlily","year":2004,"color":"#E2583E","pantone_value":"17-1456"},{"id":6,"name":"blue turquoise","year":2005,"color":"#53B0AE","pantone_value":"15-5217"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.964783" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.966779" level="INFO">${json} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'name': 'cerulean', 'year': 2000, 'color': '#98B2D1', 'pantone_value': '15-4020'}, {'id': 2, 'name': 'fuchsia rose', 'year'...</msg>
+<var>${json}</var>
+<arg>json.loads('''${data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.965779" elapsed="0.001000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.968733" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['page']}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.967739" elapsed="0.002029"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['page']}</arg>
+<arg>1</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.967739" elapsed="0.002029"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.971727" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['per_page']}</arg>
+<arg>6</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.969768" elapsed="0.001959"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['per_page']}</arg>
+<arg>6</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.969768" elapsed="0.001959"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.976715" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['total']}</arg>
+<arg>12</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.971727" elapsed="0.004988"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['total']}</arg>
+<arg>12</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.971727" elapsed="0.004988"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.981739" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['total_pages']}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.978723" elapsed="0.003016"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['total_pages']}</arg>
+<arg>2</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.977711" elapsed="0.004028"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.984734" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][0]['id']}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.983698" elapsed="0.001036"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][0]['id']}</arg>
+<arg>1</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.982699" elapsed="0.003033"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][0]['name']}</arg>
+<arg>cerulean</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.985732" elapsed="0.001001"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][0]['name']}</arg>
+<arg>cerulean</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.985732" elapsed="0.001001"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.988724" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][0]['year']}</arg>
+<arg>2000</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.987727" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][0]['year']}</arg>
+<arg>2000</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.986733" elapsed="0.001991"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data'][0]['color']}</arg>
+<arg>[#a-zA-z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.989678" elapsed="0.003989"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data'][0]['color']}</arg>
+<arg>[#a-zA-z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.988724" elapsed="0.004943"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data'][0]['pantone_value']}</arg>
+<arg>[#a-zA-z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.993667" elapsed="0.000998"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data'][0]['pantone_value']}</arg>
+<arg>[#a-zA-z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.993667" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.996689" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][1]['id']}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.995693" elapsed="0.000996"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][1]['id']}</arg>
+<arg>2</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.995693" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][1]['name']}</arg>
+<arg>fuchsia rose</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.996689" elapsed="0.000975"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][1]['name']}</arg>
+<arg>fuchsia rose</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.996689" elapsed="0.000975"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-08-13T11:46:48.998685" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][1]['year']}</arg>
+<arg>2001</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.998685" elapsed="0.000000"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][1]['year']}</arg>
+<arg>2001</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.997664" elapsed="0.001021"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data'][1]['color']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.999680" elapsed="0.000000"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data'][1]['color']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.999680" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data'][1]['pantone_value']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.000676" elapsed="0.000000"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data'][1]['pantone_value']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.000676" elapsed="0.000999"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-08-13T11:46:49.001675" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][2]['id']}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.001675" elapsed="0.000996"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][2]['id']}</arg>
+<arg>3</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.001675" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][2]['name']}</arg>
+<arg>true red</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.002671" elapsed="0.000999"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][2]['name']}</arg>
+<arg>true red</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.002671" elapsed="0.000999"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-08-13T11:46:49.004667" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][2]['year']}</arg>
+<arg>2002</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.003670" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][2]['year']}</arg>
+<arg>2002</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.003670" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data'][2]['color']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.004667" elapsed="0.000967"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data'][2]['color']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.004667" elapsed="0.000967"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data'][2]['pantone_value']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.007630" elapsed="0.000997"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data'][2]['pantone_value']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.005634" elapsed="0.002993"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-08-13T11:46:49.009624" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][3]['id']}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.008627" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][3]['id']}</arg>
+<arg>4</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.008627" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][3]['name']}</arg>
+<arg>aqua sky</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.009624" elapsed="0.000996"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][3]['name']}</arg>
+<arg>aqua sky</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.009624" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-08-13T11:46:49.011617" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][3]['year']}</arg>
+<arg>2003</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.010620" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][3]['year']}</arg>
+<arg>2003</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.010620" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data'][3]['color']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.011617" elapsed="0.001000"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data'][3]['color']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.011617" elapsed="0.001000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data'][3]['pantone_value']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.012617" elapsed="0.000997"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data'][3]['pantone_value']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.012617" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-08-13T11:46:49.014609" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][4]['id']}</arg>
+<arg>5</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.013614" elapsed="0.000995"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][4]['id']}</arg>
+<arg>5</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.013614" elapsed="0.000995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][4]['name']}</arg>
+<arg>tigerlily</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.014609" elapsed="0.001000"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][4]['name']}</arg>
+<arg>tigerlily</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.014609" elapsed="0.001000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-08-13T11:46:49.015609" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][4]['year']}</arg>
+<arg>2004</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.015609" elapsed="0.000000"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][4]['year']}</arg>
+<arg>2004</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.015609" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data'][4]['color']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.016606" elapsed="0.000000"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data'][4]['color']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.015609" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data'][4]['pantone_value']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.016606" elapsed="0.000997"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data'][4]['pantone_value']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.016606" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-08-13T11:46:49.018601" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][5]['id']}</arg>
+<arg>6</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.017603" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][5]['id']}</arg>
+<arg>6</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.017603" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][5]['name']}</arg>
+<arg>blue turquoise</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.018601" elapsed="0.000000"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][5]['name']}</arg>
+<arg>blue turquoise</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.018601" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-08-13T11:46:49.019598" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][5]['year']}</arg>
+<arg>2005</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.019598" elapsed="0.000000"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][5]['year']}</arg>
+<arg>2005</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.018601" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data'][5]['color']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.020594" elapsed="0.000000"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data'][5]['color']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.019598" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['data'][5]['pantone_value']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.020594" elapsed="0.000998"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['data'][5]['pantone_value']}</arg>
+<arg>[#a-zA-Z0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.020594" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['support']['url']}</arg>
+<arg>https://reqres.in/#support-heading</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.021592" elapsed="0.002992"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['support']['url']}</arg>
+<arg>https://reqres.in/#support-heading</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.021592" elapsed="0.002992"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['support']['text']}</arg>
+<arg>To keep ReqRes free, contributions towards server costs are appreciated!</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.024584" elapsed="0.000996"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['support']['text']}</arg>
+<arg>To keep ReqRes free, contributions towards server costs are appreciated!</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.024584" elapsed="0.000996"/>
+</kw>
+<arg>${response.content}</arg>
+<status status="PASS" start="2024-08-13T11:46:48.959758" elapsed="0.065822"/>
+</kw>
+<arg>GetLRContentValidation</arg>
+<arg>${response.content}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:48.957765" elapsed="0.067815"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:48.719062" elapsed="0.307517"/>
+</test>
+<test id="s1-t6" name="RUserNotFound" line="57">
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:49.026579" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:49.377270" level="INFO">GET Request : url=https://reqres.in/api/unknown/23 
+ path_url=/api/unknown/23 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:49.378267" level="INFO">GET Response : url=https://reqres.in/api/unknown/23 
+ status=404, reason=Not Found 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:50 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723529810&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=YDmZp2iBiUL64lTEZOKjw6P1bktzIETAhlKbMtHdHcg%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723529810&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=YDmZp2iBiUL64lTEZOKjw6P1bktzIETAhlKbMtHdHcg%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'EXPIRED', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8b26942009cdf3f9-BOM'} 
+ body={} 
+ </msg>
+<msg time="2024-08-13T11:46:49.378267" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:49.378267" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${RUserNotFound}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.026579" elapsed="0.351688"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:49.379260" level="INFO">404</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.378267" elapsed="0.000993"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:49.380257" level="INFO">{}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.379260" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:49.381255" level="INFO">404</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.381255" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:49.382251" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.382251" elapsed="0.000000"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.382251" elapsed="0.000000"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>404</arg>
+<status status="PASS" start="2024-08-13T11:46:49.380257" elapsed="0.001994"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>404</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.380257" elapsed="0.001994"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:49.026579" elapsed="0.355672"/>
+</test>
+<test id="s1-t7" name="DRUserGet" line="63">
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:49.383250" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:52.940894" level="INFO">GET Request : url=https://reqres.in/api/users?delay=3 
+ path_url=/api/users?delay=3 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:52.941901" level="INFO">GET Response : url=https://reqres.in/api/users?delay=3 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:53 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723529810&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=YDmZp2iBiUL64lTEZOKjw6P1bktzIETAhlKbMtHdHcg%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723529810&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=YDmZp2iBiUL64lTEZOKjw6P1bktzIETAhlKbMtHdHcg%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"3e4-2RLXvr5wTg9YQ6aH95CkYoFNuO8"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8b2694227bbcf3f9-BOM', 'Content-Encoding': 'gzip'} 
+ body={"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"},{"id":4,"email":"eve.holt@reqres.in","first_name":"Eve","last_name":"Holt","avatar":"https://reqres.in/img/faces/4-image.jpg"},{"id":5,"email":"charles.morris@reqres.in","first_name":"Charles","last_name":"Morris","avatar":"https://reqres.in/img/faces/5-image.jpg"},{"id":6,"email":"tracey.ramos@reqres.in","first_name":"Tracey","last_name":"Ramos","avatar":"https://reqres.in/img/faces/6-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg time="2024-08-13T11:46:52.941901" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:52.942895" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${GetDRPath}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:49.383250" elapsed="3.559645"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:52.946879" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.943894" elapsed="0.002985"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:52.949920" level="INFO">{"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"},{"id":4,"email":"eve.holt@reqres.in","first_name":"Eve","last_name":"Holt","avatar":"https://reqres.in/img/faces/4-image.jpg"},{"id":5,"email":"charles.morris@reqres.in","first_name":"Charles","last_name":"Morris","avatar":"https://reqres.in/img/faces/5-image.jpg"},{"id":6,"email":"tracey.ramos@reqres.in","first_name":"Tracey","last_name":"Ramos","avatar":"https://reqres.in/img/faces/6-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.947880" elapsed="0.002040"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:52.960845" level="INFO">200</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.958847" elapsed="0.001998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:52.962836" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.962836" elapsed="0.001000"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.961839" elapsed="0.001997"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<status status="PASS" start="2024-08-13T11:46:52.951871" elapsed="0.011965"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.950917" elapsed="0.013920"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="GetDRContentValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:52.973805" level="INFO">{"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"},{"id":4,"email":"eve.holt@reqres.in","first_name":"Eve","last_name":"Holt","avatar":"https://reqres.in/img/faces/4-image.jpg"},{"id":5,"email":"charles.morris@reqres.in","first_name":"Charles","last_name":"Morris","avatar":"https://reqres.in/img/faces/5-image.jpg"},{"id":6,"email":"tracey.ramos@reqres.in","first_name":"Tracey","last_name":"Ramos","avatar":"https://reqres.in/img/faces/6-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.972807" elapsed="0.000998"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-13T11:46:52.975800" level="INFO">${json} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-i...</msg>
+<var>${json}</var>
+<arg>json.loads('''${data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.974802" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:52.979790" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['page']}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.976797" elapsed="0.002993"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['page']}</arg>
+<arg>1</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.976797" elapsed="0.002993"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:52.982783" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['per_page']}</arg>
+<arg>6</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.980788" elapsed="0.001995"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['per_page']}</arg>
+<arg>6</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.980788" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:52.985771" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['total']}</arg>
+<arg>12</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.983776" elapsed="0.001995"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['total']}</arg>
+<arg>12</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.983776" elapsed="0.002993"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:52.988765" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['total_pages']}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.986769" elapsed="0.001996"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['total_pages']}</arg>
+<arg>2</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.986769" elapsed="0.001996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:52.989762" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][0]['id']}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.988765" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][0]['id']}</arg>
+<arg>1</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.988765" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][0]['email']}</arg>
+<arg>george.bluth@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.990759" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][0]['email']}</arg>
+<arg>george.bluth@reqres.in</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.990759" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][0]['first_name']}</arg>
+<arg>George</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.991756" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][0]['first_name']}</arg>
+<arg>George</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.991756" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][0]['last_name']}</arg>
+<arg>Bluth</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.992753" elapsed="0.001998"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][0]['last_name']}</arg>
+<arg>Bluth</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.992753" elapsed="0.001998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][0]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/1-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.994751" elapsed="0.001991"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][0]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/1-image.jpg</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.994751" elapsed="0.001991"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:52.997740" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][1]['id']}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.996742" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][1]['id']}</arg>
+<arg>2</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.996742" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][1]['email']}</arg>
+<arg>janet.weaver@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.997740" elapsed="0.001000"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][1]['email']}</arg>
+<arg>janet.weaver@reqres.in</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.997740" elapsed="0.001000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][1]['first_name']}</arg>
+<arg>Janet</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.998740" elapsed="0.000994"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][1]['first_name']}</arg>
+<arg>Janet</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.998740" elapsed="0.000994"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][1]['last_name']}</arg>
+<arg>Weaver</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.999734" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][1]['last_name']}</arg>
+<arg>Weaver</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.999734" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][1]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/2-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.000732" elapsed="0.002990"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][1]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/2-image.jpg</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.000732" elapsed="0.002990"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.005724" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][2]['id']}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.004720" elapsed="0.001004"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][2]['id']}</arg>
+<arg>3</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.003722" elapsed="0.002002"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][2]['email']}</arg>
+<arg>emma.wong@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.006744" elapsed="0.000967"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][2]['email']}</arg>
+<arg>emma.wong@reqres.in</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.006744" elapsed="0.000967"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][2]['first_name']}</arg>
+<arg>Emma</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.008710" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][2]['first_name']}</arg>
+<arg>Emma</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.008710" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][2]['last_name']}</arg>
+<arg>Wong</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.010704" elapsed="0.000996"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][2]['last_name']}</arg>
+<arg>Wong</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.010704" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][2]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/3-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.011700" elapsed="0.001995"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][2]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/3-image.jpg</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.011700" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.015690" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][3]['id']}</arg>
+<arg>4</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.014693" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][3]['id']}</arg>
+<arg>4</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.013695" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][3]['email']}</arg>
+<arg>eve.holt@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.016687" elapsed="0.005984"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][3]['email']}</arg>
+<arg>eve.holt@reqres.in</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.015690" elapsed="0.006981"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][3]['first_name']}</arg>
+<arg>Eve</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.023669" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][3]['first_name']}</arg>
+<arg>Eve</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.022671" elapsed="0.001996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][3]['last_name']}</arg>
+<arg>Holt</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.025664" elapsed="0.000996"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][3]['last_name']}</arg>
+<arg>Holt</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.025664" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][3]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/4-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.027657" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][3]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/4-image.jpg</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.027657" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.030649" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][4]['id']}</arg>
+<arg>5</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.029653" elapsed="0.000996"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][4]['id']}</arg>
+<arg>5</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.029653" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][4]['email']}</arg>
+<arg>charles.morris@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.031648" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][4]['email']}</arg>
+<arg>charles.morris@reqres.in</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.031648" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][4]['first_name']}</arg>
+<arg>Charles</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.032645" elapsed="0.001994"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][4]['first_name']}</arg>
+<arg>Charles</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.032645" elapsed="0.001994"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][4]['last_name']}</arg>
+<arg>Morris</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.036640" elapsed="0.000991"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][4]['last_name']}</arg>
+<arg>Morris</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.035637" elapsed="0.001994"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][4]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/5-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.038628" elapsed="0.000999"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][4]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/5-image.jpg</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.038628" elapsed="0.000999"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.041620" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${json['data'][5]['id']}</arg>
+<arg>6</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.040631" elapsed="0.000989"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${json['data'][5]['id']}</arg>
+<arg>6</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.040631" elapsed="0.000989"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][5]['email']}</arg>
+<arg>tracey.ramos@reqres.in</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.042617" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][5]['email']}</arg>
+<arg>tracey.ramos@reqres.in</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.042617" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][5]['first_name']}</arg>
+<arg>Tracey</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.043615" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][5]['first_name']}</arg>
+<arg>Tracey</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.043615" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][5]['last_name']}</arg>
+<arg>Ramos</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.045609" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][5]['last_name']}</arg>
+<arg>Ramos</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.044612" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['data'][5]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/6-image.jpg</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.047604" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['data'][5]['avatar']}</arg>
+<arg>https://reqres.in/img/faces/6-image.jpg</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.046607" elapsed="0.001994"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['support']['url']}</arg>
+<arg>https://reqres.in/#support-heading</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.049598" elapsed="0.000998"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['support']['url']}</arg>
+<arg>https://reqres.in/#support-heading</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.048601" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${json['support']['text']}</arg>
+<arg>To keep ReqRes free, contributions towards server costs are appreciated!</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.052592" elapsed="0.001993"/>
+</kw>
+<arg>should be equal as strings</arg>
+<arg>${json['support']['text']}</arg>
+<arg>To keep ReqRes free, contributions towards server costs are appreciated!</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.050596" elapsed="0.003989"/>
+</kw>
+<arg>${response.content}</arg>
+<status status="PASS" start="2024-08-13T11:46:52.967822" elapsed="0.086763"/>
+</kw>
+<arg>GetDRContentValidation</arg>
+<arg>${response.content}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:52.965827" elapsed="0.088758"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:49.383250" elapsed="3.672333"/>
+</test>
+<test id="s1-t8" name="DeleteUser" line="71">
+<kw name="Delete Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:53.056580" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg time="2024-08-13T11:46:53.391340" level="INFO">DELETE Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:53.392338" level="INFO">DELETE Response : url=https://reqres.in/api/users/2 
+ status=204, reason=No Content 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:54 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723529814&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=6axF%2BgH%2FiJG3nYqzlsZj7wZMeitQ3eO5GlCQsieHAps%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723529814&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=6axF%2BgH%2FiJG3nYqzlsZj7wZMeitQ3eO5GlCQsieHAps%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8b2694393fa4f3f9-BOM'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:53.393341" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:53.394331" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${DeletePath}</arg>
+<doc>*DEPRECATED* Please use `DELETE On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.056580" elapsed="0.337751"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.400316" level="INFO">204</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.395334" elapsed="0.004982"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.407313" level="INFO"/>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.401312" elapsed="0.006001"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.412292" level="INFO">204</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.412292" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.415285" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.414280" elapsed="0.001005"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.414280" elapsed="0.001005"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>204</arg>
+<status status="PASS" start="2024-08-13T11:46:53.408305" elapsed="0.007976"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>204</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.408305" elapsed="0.007976"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:53.055583" elapsed="0.360698"/>
+</test>
+<test id="s1-t9" name="PostCreateUser" line="77">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.423253" level="INFO">${body} = {'name': 'morpheus', 'job': 'leader'}</msg>
+<var>${body}</var>
+<arg>name=morpheus</arg>
+<arg>job=leader</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.420267" elapsed="0.002986"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.425253" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.424253" elapsed="0.001000"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:53.425253" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-08-13T11:46:53.790004" level="INFO">POST Request : url=https://reqres.in/api/users%20data=%7B'name':%20'morpheus',%20'job':%20'leader'%7D 
+ path_url=/api/users%20data=%7B'name':%20'morpheus',%20'job':%20'leader'%7D 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:53.790004" level="INFO">POST Response : url=https://reqres.in/api/users%20data=%7B'name':%20'morpheus',%20'job':%20'leader'%7D 
+ status=201, reason=Created 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:54 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '51', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723529814&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=6axF%2BgH%2FiJG3nYqzlsZj7wZMeitQ3eO5GlCQsieHAps%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723529814&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=6axF%2BgH%2FiJG3nYqzlsZj7wZMeitQ3eO5GlCQsieHAps%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"33-Vm1N8apL6KgDiAh/ffdtSwyxZk4"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8b26943bb9ebf3f9-BOM'} 
+ body={"id":"493","createdAt":"2024-08-13T06:16:54.553Z"} 
+ </msg>
+<msg time="2024-08-13T11:46:53.790004" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:53.791002" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${PostCreate} data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.425253" elapsed="0.365749"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.792000" level="INFO">201</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.791002" elapsed="0.000998"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.793004" level="INFO">{"id":"493","createdAt":"2024-08-13T06:16:54.553Z"}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.792000" elapsed="0.001996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.796987" level="INFO">201</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.795991" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.797984" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.796987" elapsed="0.000997"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.796987" elapsed="0.000997"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<status status="PASS" start="2024-08-13T11:46:53.794991" elapsed="0.002993"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.793996" elapsed="0.003988"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="PostCUContantValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.800977" level="INFO">{"id":"493","createdAt":"2024-08-13T06:16:54.553Z"}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.799977" elapsed="0.001000"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.801972" level="INFO">${newdata} = {"id":"493","createdAt":"2024-08-13T06:16:54.553Z"}</msg>
+<var>${newdata}</var>
+<arg>${data}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.800977" elapsed="0.000995"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.803968" level="INFO">${json} = {'id': '493', 'createdAt': '2024-08-13T06:16:54.553Z'}</msg>
+<var>${json}</var>
+<arg>json.loads('''${data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.802970" elapsed="0.001994"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['id']}</arg>
+<arg>[0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.805961" elapsed="0.000999"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['id']}</arg>
+<arg>[0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.804964" elapsed="0.002993"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['createdAt']}</arg>
+<arg>[A-Z0-9:.]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.807957" elapsed="0.001995"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['createdAt']}</arg>
+<arg>[A-Z0-9:.]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.807957" elapsed="0.001995"/>
+</kw>
+<arg>${response.content}</arg>
+<status status="PASS" start="2024-08-13T11:46:53.798980" elapsed="0.010972"/>
+</kw>
+<arg>PostCUContantValidation</arg>
+<arg>${response.content}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.798980" elapsed="0.010972"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:53.418282" elapsed="0.391670"/>
+</test>
+<test id="s1-t10" name="PostRSUser" line="86">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.811946" level="INFO">${body} = {'email': 'eve.holt@reqres.in', 'password': 'pistol'}</msg>
+<var>${body}</var>
+<arg>email=eve.holt@reqres.in</arg>
+<arg>password=pistol</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.810949" elapsed="0.000997"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:53.811946" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.811946" elapsed="0.000000"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:53.812942" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-08-13T11:46:54.270684" level="INFO">POST Request : url=https://reqres.in/api/register%7D%20data=%7B'email':%20'eve.holt@reqres.in',%20'password':%20'pistol'%7D 
+ path_url=/api/register%7D%20data=%7B'email':%20'eve.holt@reqres.in',%20'password':%20'pistol'%7D 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:54.271684" level="INFO">POST Response : url=https://reqres.in/api/register%7D%20data=%7B'email':%20'eve.holt@reqres.in',%20'password':%20'pistol'%7D 
+ status=201, reason=Created 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:55 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '51', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723529814&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=6axF%2BgH%2FiJG3nYqzlsZj7wZMeitQ3eO5GlCQsieHAps%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723529814&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=6axF%2BgH%2FiJG3nYqzlsZj7wZMeitQ3eO5GlCQsieHAps%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"33-E1uWbXCT3W18gxoVAnQAPEGEgws"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8b26943dfbc6f3f9-BOM'} 
+ body={"id":"126","createdAt":"2024-08-13T06:16:54.929Z"} 
+ </msg>
+<msg time="2024-08-13T11:46:54.272678" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:54.273678" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${PostRS}} data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:53.812942" elapsed="0.460736"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.278671" level="INFO">201</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.275673" elapsed="0.003988"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.285648" level="INFO">{"id":"126","createdAt":"2024-08-13T06:16:54.929Z"}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.280658" elapsed="0.005982"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.295616" level="INFO">201</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.294658" elapsed="0.000958"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.297649" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.296612" elapsed="0.001037"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.295616" elapsed="0.003031"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<status status="PASS" start="2024-08-13T11:46:54.290633" elapsed="0.008014"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.287648" elapsed="0.010999"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="PostRSContantValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.305589" level="INFO">{"id":"126","createdAt":"2024-08-13T06:16:54.929Z"}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.304591" elapsed="0.000998"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.306584" level="INFO">${newdata} = {"id":"126","createdAt":"2024-08-13T06:16:54.929Z"}</msg>
+<var>${newdata}</var>
+<arg>${data}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.305589" elapsed="0.000995"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.307581" level="INFO">${json} = {'id': '126', 'createdAt': '2024-08-13T06:16:54.929Z'}</msg>
+<var>${json}</var>
+<arg>json.loads('''${data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.306584" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['id']}</arg>
+<arg>[0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.308579" elapsed="0.001995"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['id']}</arg>
+<arg>[0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.307581" elapsed="0.003992"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['createdAt']}</arg>
+<arg>[a-zA-Z0-9:.]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.311573" elapsed="0.000999"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['createdAt']}</arg>
+<arg>[a-zA-Z0-9:.]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.311573" elapsed="0.000999"/>
+</kw>
+<arg>${response.content}</arg>
+<status status="PASS" start="2024-08-13T11:46:54.300603" elapsed="0.011969"/>
+</kw>
+<arg>PostRSContantValidation</arg>
+<arg>${response.content}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.299648" elapsed="0.013922"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:53.810949" elapsed="0.502621"/>
+</test>
+<test id="s1-t11" name="PostRUUser" line="95">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.314566" level="INFO">${body} = {'email': 'sydney@fife'}</msg>
+<var>${body}</var>
+<arg>email=sydney@fife</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.313570" elapsed="0.000996"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.314566" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.314566" elapsed="0.000000"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:54.314566" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-08-13T11:46:54.691972" level="INFO">POST Request : url=https://reqres.in/api/register%7D%20data=%7B'email':%20'sydney@fife'%7D 
+ path_url=/api/register%7D%20data=%7B'email':%20'sydney@fife'%7D 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:54.693008" level="INFO">POST Response : url=https://reqres.in/api/register%7D%20data=%7B'email':%20'sydney@fife'%7D 
+ status=201, reason=Created 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:55 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '51', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723529815&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=kvs8Joh9LZMn5tm2P67ZIp7em0QoI9uYlShYCTNhuKw%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723529815&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=kvs8Joh9LZMn5tm2P67ZIp7em0QoI9uYlShYCTNhuKw%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"33-fw4/zRVxdLGiCVtb5O01RY2DdWc"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8b2694413ec5f3f9-BOM'} 
+ body={"id":"507","createdAt":"2024-08-13T06:16:55.451Z"} 
+ </msg>
+<msg time="2024-08-13T11:46:54.693008" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:54.693008" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${PostRU}} data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.314566" elapsed="0.378442"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.693970" level="INFO">201</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.693008" elapsed="0.000962"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.694999" level="INFO">{"id":"507","createdAt":"2024-08-13T06:16:55.451Z"}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.694999" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.696993" level="INFO">201</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.696993" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.697990" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.697990" elapsed="0.000000"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.697990" elapsed="0.000000"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<status status="PASS" start="2024-08-13T11:46:54.695999" elapsed="0.002958"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.695999" elapsed="0.002958"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="PostRUContantValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.702949" level="INFO">{"id":"507","createdAt":"2024-08-13T06:16:55.451Z"}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.702949" elapsed="0.000000"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.703947" level="INFO">${newdata} = {"id":"507","createdAt":"2024-08-13T06:16:55.451Z"}</msg>
+<var>${newdata}</var>
+<arg>${data}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.703947" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.703947" level="INFO">${json} = {'id': '507', 'createdAt': '2024-08-13T06:16:55.451Z'}</msg>
+<var>${json}</var>
+<arg>json.loads('''${data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.703947" elapsed="0.000995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['id']}</arg>
+<arg>[0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.704942" elapsed="0.000999"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['id']}</arg>
+<arg>[0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.704942" elapsed="0.000999"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['createdAt']}</arg>
+<arg>[a-zA-Z0-9:.]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.705941" elapsed="0.000997"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['createdAt']}</arg>
+<arg>[a-zA-Z0-9:.]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.705941" elapsed="0.000997"/>
+</kw>
+<arg>${response.content}</arg>
+<status status="PASS" start="2024-08-13T11:46:54.698957" elapsed="0.007981"/>
+</kw>
+<arg>PostRUContantValidation</arg>
+<arg>${response.content}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.698957" elapsed="0.007981"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:54.313570" elapsed="0.394365"/>
+</test>
+<test id="s1-t12" name="PostLSUser" line="104">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.708933" level="INFO">${body} = {'email': 'eve.holt@reqres.in', 'password': 'cityslicka'}</msg>
+<var>${body}</var>
+<arg>email=eve.holt@reqres.in</arg>
+<arg>password=cityslicka</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.707935" elapsed="0.000998"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:54.708933" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.708933" elapsed="0.000000"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:54.708933" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-08-13T11:46:55.059674" level="INFO">POST Request : url=https://reqres.in/api/login%7D%20data=%7B'email':%20'eve.holt@reqres.in',%20'password':%20'cityslicka'%7D 
+ path_url=/api/login%7D%20data=%7B'email':%20'eve.holt@reqres.in',%20'password':%20'cityslicka'%7D 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:55.060671" level="INFO">POST Response : url=https://reqres.in/api/login%7D%20data=%7B'email':%20'eve.holt@reqres.in',%20'password':%20'cityslicka'%7D 
+ status=201, reason=Created 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:55 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '51', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723529815&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=kvs8Joh9LZMn5tm2P67ZIp7em0QoI9uYlShYCTNhuKw%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723529815&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=kvs8Joh9LZMn5tm2P67ZIp7em0QoI9uYlShYCTNhuKw%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"33-4/we7bkZCBbF2DisO4MU/NZoYKI"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8b26944398c5f3f9-BOM'} 
+ body={"id":"621","createdAt":"2024-08-13T06:16:55.817Z"} 
+ </msg>
+<msg time="2024-08-13T11:46:55.060671" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:55.060671" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${PostLS}} data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:54.708933" elapsed="0.352731"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.062666" level="INFO">201</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.061664" elapsed="0.001999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.064661" level="INFO">{"id":"621","createdAt":"2024-08-13T06:16:55.817Z"}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.063663" elapsed="0.001995"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.073126" level="INFO">201</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.072123" elapsed="0.001003"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.075118" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.074123" elapsed="0.001989"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.074123" elapsed="0.001989"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<status status="PASS" start="2024-08-13T11:46:55.067649" elapsed="0.008463"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.066650" elapsed="0.010463"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="PostLSContantValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.080107" level="INFO">{"id":"621","createdAt":"2024-08-13T06:16:55.817Z"}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.080107" elapsed="0.000000"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.081103" level="INFO">${newdata} = {"id":"621","createdAt":"2024-08-13T06:16:55.817Z"}</msg>
+<var>${newdata}</var>
+<arg>${data}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.081103" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.083093" level="INFO">${json} = {'id': '621', 'createdAt': '2024-08-13T06:16:55.817Z'}</msg>
+<var>${json}</var>
+<arg>json.loads('''${data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.081103" elapsed="0.002988"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['id']}</arg>
+<arg>[0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.086085" elapsed="0.004984"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['id']}</arg>
+<arg>[0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.085091" elapsed="0.006976"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['createdAt']}</arg>
+<arg>[a-zA-Z0-9:.]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.093065" elapsed="0.000995"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['createdAt']}</arg>
+<arg>[a-zA-Z0-9:.]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.092067" elapsed="0.001993"/>
+</kw>
+<arg>${response.content}</arg>
+<status status="PASS" start="2024-08-13T11:46:55.078110" elapsed="0.015950"/>
+</kw>
+<arg>PostLSContantValidation</arg>
+<arg>${response.content}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.077113" elapsed="0.017945"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:54.707935" elapsed="0.387123"/>
+</test>
+<test id="s1-t13" name="PostLUUser" line="113">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.097053" level="INFO">${body} = {'email': 'peter@klaven'}</msg>
+<var>${body}</var>
+<arg>email=peter@klaven</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.096055" elapsed="0.000998"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.097053" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.097053" elapsed="0.000000"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:55.097053" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-08-13T11:46:55.547163" level="INFO">POST Request : url=https://reqres.in/api/login%7D%20data=%7B'email':%20'peter@klaven'%7D 
+ path_url=/api/login%7D%20data=%7B'email':%20'peter@klaven'%7D 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:55.547163" level="INFO">POST Response : url=https://reqres.in/api/login%7D%20data=%7B'email':%20'peter@klaven'%7D 
+ status=201, reason=Created 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:56 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '51', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723529816&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=V6NUx3jEwfddevHNRXwUUWsvM4aqUCmeRoIQh2LGcTA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723529816&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=V6NUx3jEwfddevHNRXwUUWsvM4aqUCmeRoIQh2LGcTA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"33-5VOAuk/LoJJsbDuebplZKz+qTAw"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8b2694463ad2f3f9-BOM'} 
+ body={"id":"730","createdAt":"2024-08-13T06:16:56.251Z"} 
+ </msg>
+<msg time="2024-08-13T11:46:55.547163" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:55.547163" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${PostLU}} data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.097053" elapsed="0.451106"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.551152" level="INFO">201</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.548159" elapsed="0.002993"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.553147" level="INFO">{"id":"730","createdAt":"2024-08-13T06:16:56.251Z"}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.552150" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.556139" level="INFO">201</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.556139" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.557136" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.557136" elapsed="0.000000"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.556139" elapsed="0.001995"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<status status="PASS" start="2024-08-13T11:46:55.554145" elapsed="0.003989"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.554145" elapsed="0.003989"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="PostLUContantValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.561126" level="INFO">{"id":"730","createdAt":"2024-08-13T06:16:56.251Z"}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.561126" elapsed="0.000000"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.562123" level="INFO">${newdata} = {"id":"730","createdAt":"2024-08-13T06:16:56.251Z"}</msg>
+<var>${newdata}</var>
+<arg>${data}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.561126" elapsed="0.000997"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.563121" level="INFO">${json} = {'id': '730', 'createdAt': '2024-08-13T06:16:56.251Z'}</msg>
+<var>${json}</var>
+<arg>json.loads('''${data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.562123" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['id']}</arg>
+<arg>[0-9]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.563121" elapsed="0.000997"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['id']}</arg>
+<arg>[0-9]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.563121" elapsed="0.003989"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['createdAt']}</arg>
+<arg>[a-zA-Z0-9:.]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.571615" elapsed="0.000999"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['createdAt']}</arg>
+<arg>[a-zA-Z0-9:.]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.570619" elapsed="0.002992"/>
+</kw>
+<arg>${response.content}</arg>
+<status status="PASS" start="2024-08-13T11:46:55.559131" elapsed="0.014480"/>
+</kw>
+<arg>PostLUContantValidation</arg>
+<arg>${response.content}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.559131" elapsed="0.014480"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:55.095058" elapsed="0.478553"/>
+</test>
+<test id="s1-t14" name="PutUpdate" line="122">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.575605" level="INFO">${body} = {'name': 'morpheus', 'job': 'zion resident'}</msg>
+<var>${body}</var>
+<arg>name=morpheus</arg>
+<arg>job=zion resident</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.575605" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.576602" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.576602" elapsed="0.000997"/>
+</kw>
+<kw name="Put Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:55.577599" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg time="2024-08-13T11:46:55.930171" level="INFO">PUT Request : url=https://reqres.in/api/users/2%20data=%7B'name':%20'morpheus',%20'job':%20'zion%20resident'%7D 
+ path_url=/api/users/2%20data=%7B'name':%20'morpheus',%20'job':%20'zion%20resident'%7D 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:55.930171" level="INFO">PUT Response : url=https://reqres.in/api/users/2%20data=%7B'name':%20'morpheus',%20'job':%20'zion%20resident'%7D 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:56 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '40', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723529816&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=V6NUx3jEwfddevHNRXwUUWsvM4aqUCmeRoIQh2LGcTA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723529816&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=V6NUx3jEwfddevHNRXwUUWsvM4aqUCmeRoIQh2LGcTA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"28-ABgbxUbw998u2BgWH5cZaSgsubU"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8b269448fcd4f3f9-BOM'} 
+ body={"updatedAt":"2024-08-13T06:16:56.685Z"} 
+ </msg>
+<msg time="2024-08-13T11:46:55.930171" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:55.931168" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${PutPath} data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `PUT On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.577599" elapsed="0.353569"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.933163" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.931168" elapsed="0.001995"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.934160" level="INFO">{"updatedAt":"2024-08-13T06:16:56.685Z"}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.933163" elapsed="0.001994"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.937152" level="INFO">200</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.936154" elapsed="0.000998"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.937152" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.937152" elapsed="0.000000"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.937152" elapsed="0.000997"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<status status="PASS" start="2024-08-13T11:46:55.935157" elapsed="0.002992"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.935157" elapsed="0.002992"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="PutUpdateContantValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.940148" level="INFO">{"updatedAt":"2024-08-13T06:16:56.685Z"}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.940148" elapsed="0.000000"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.941143" level="INFO">${newdata} = {"updatedAt":"2024-08-13T06:16:56.685Z"}</msg>
+<var>${newdata}</var>
+<arg>${data}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.940148" elapsed="0.000995"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.941143" level="INFO">${Json} = {'updatedAt': '2024-08-13T06:16:56.685Z'}</msg>
+<var>${Json}</var>
+<arg>json.loads('''${data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.941143" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['updatedAt']}</arg>
+<arg>[a-zA-Z0-9:.]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.942149" elapsed="0.000989"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['updatedAt']}</arg>
+<arg>[a-zA-Z0-9:.]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.942149" elapsed="0.000989"/>
+</kw>
+<arg>${response.content}</arg>
+<status status="PASS" start="2024-08-13T11:46:55.938149" elapsed="0.004989"/>
+</kw>
+<arg>PutUpdateContantValidation</arg>
+<arg>${response.content}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.938149" elapsed="0.004989"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:55.574608" elapsed="0.368530"/>
+</test>
+<test id="s1-t15" name="PatchUpdate" line="131">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.945131" level="INFO">${body} = {'name': 'morpheus', 'job': 'zion resident'}</msg>
+<var>${body}</var>
+<arg>name=morpheus</arg>
+<arg>job=zion resident</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.944135" elapsed="0.000996"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-13T11:46:55.945131" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.945131" elapsed="0.000000"/>
+</kw>
+<kw name="Put Request" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:55.946130" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg time="2024-08-13T11:46:56.324912" level="INFO">PUT Request : url=https://reqres.in/api/users/2%20data=%7B'name':%20'morpheus',%20'job':%20'zion%20resident'%7D 
+ path_url=/api/users/2%20data=%7B'name':%20'morpheus',%20'job':%20'zion%20resident'%7D 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-08-13T11:46:56.324912" level="INFO">PUT Response : url=https://reqres.in/api/users/2%20data=%7B'name':%20'morpheus',%20'job':%20'zion%20resident'%7D 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 13 Aug 2024 06:16:57 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '40', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723529817&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=wIeVMFrDtR9M7to1v8y8CyyBJAOejzxFvgJacIzawBI%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723529817&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=wIeVMFrDtR9M7to1v8y8CyyBJAOejzxFvgJacIzawBI%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"28-9yV22avgRuHKjH05+ua/p5LxQYg"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8b26944b7f3df3f9-BOM'} 
+ body={"updatedAt":"2024-08-13T06:16:57.082Z"} 
+ </msg>
+<msg time="2024-08-13T11:46:56.324912" level="INFO">C:\Apps\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-13T11:46:56.324912" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>hostsession</arg>
+<arg>${PatchPath} data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `PUT On Session` instead.</doc>
+<status status="PASS" start="2024-08-13T11:46:55.946130" elapsed="0.378782"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:56.326908" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:56.325910" elapsed="0.000998"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:56.328902" level="INFO">{"updatedAt":"2024-08-13T06:16:57.082Z"}</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:56.327906" elapsed="0.000996"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="CodeValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:56.332892" level="INFO">200</msg>
+<arg>${code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:56.331895" elapsed="0.000997"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-08-13T11:46:56.333889" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-08-13T11:46:56.333889" elapsed="0.000000"/>
+</kw>
+<arg>should be equal as integers</arg>
+<arg>${code}</arg>
+<arg>${newcode}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:56.333889" elapsed="0.000998"/>
+</kw>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<status status="PASS" start="2024-08-13T11:46:56.329901" elapsed="0.004986"/>
+</kw>
+<arg>CodeValidation</arg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:56.329901" elapsed="0.004986"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="PatchUpdateContantValidation">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-13T11:46:56.336881" level="INFO">{"updatedAt":"2024-08-13T06:16:57.082Z"}</msg>
+<arg>${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-13T11:46:56.336881" elapsed="0.000997"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-08-13T11:46:56.337878" level="INFO">${newdata} = {"updatedAt":"2024-08-13T06:16:57.082Z"}</msg>
+<var>${newdata}</var>
+<arg>${data}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-08-13T11:46:56.337878" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-13T11:46:56.338882" level="INFO">${Json} = {'updatedAt': '2024-08-13T06:16:57.082Z'}</msg>
+<var>${Json}</var>
+<arg>json.loads('''${data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-13T11:46:56.337878" elapsed="0.001004"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${json['updatedAt']}</arg>
+<arg>[a-zA-Z0-9:.]</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2024-08-13T11:46:56.339873" elapsed="0.000997"/>
+</kw>
+<arg>should match regexp</arg>
+<arg>${json['updatedAt']}</arg>
+<arg>[a-zA-Z0-9:.]</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:56.338882" elapsed="0.002985"/>
+</kw>
+<arg>${response.content}</arg>
+<status status="PASS" start="2024-08-13T11:46:56.335883" elapsed="0.005984"/>
+</kw>
+<arg>PatchUpdateContantValidation</arg>
+<arg>${response.content}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-13T11:46:56.334887" elapsed="0.006980"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:55.944135" elapsed="0.397732"/>
+</test>
+<kw name="Custom_Teardown" type="TEARDOWN">
+<kw name="Delete All Sessions" owner="RequestsLibrary">
+<msg time="2024-08-13T11:46:56.343862" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2024-08-13T11:46:56.342865" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:56.342865" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2024-08-13T11:46:46.880365" elapsed="9.463497"/>
+</suite>
+<statistics>
+<total>
+<stat pass="15" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="15" fail="0" skip="0" id="s1" name="Testlab">Testlab</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-08-13T11:46:47.532286" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:48.008881" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:48.180898" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:48.615260" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:48.719062" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:49.026579" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:49.383250" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-08-13T11:46:53.056580" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg time="2024-08-13T11:46:53.425253" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-08-13T11:46:53.812942" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-08-13T11:46:54.314566" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-08-13T11:46:54.708933" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-08-13T11:46:55.097053" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-08-13T11:46:55.577599" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg time="2024-08-13T11:46:55.946130" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+</errors>
+</robot>
